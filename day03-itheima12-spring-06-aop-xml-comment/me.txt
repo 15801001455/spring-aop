@@ -1,0 +1,4 @@
+1、如果目标类实现了接口，则采用jdkproxy,如果目标类没有实现接口，则采用cglibproxy
+   	而这些都是spring内部完成
+2、如果想要强制使用cglibproxy，则在aop:config下有一个属性proxy-target-class
+    	该属性的默认值为false,如果改成true,则目标了的代理类肯定是由cglib产生的

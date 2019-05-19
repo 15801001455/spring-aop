@@ -1,0 +1,9 @@
+1、创建持久化类和映射文件
+2、创建hibernate的配置文件
+3、写spring的配置文件，引入sessionFactory
+4、测试sessionFactory
+5、写dao层和service层的接口和类
+6、把dao层和service层的类放入到spring容器中
+7、在spring的配置文件中进行aop的配置
+    ......
+8、测试

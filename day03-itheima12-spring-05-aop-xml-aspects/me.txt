@@ -1,0 +1,12 @@
+如果一个目标类有多个切面，每一个切面中都有前置通知和后置通知，例如：
+    A
+      beforeAA 前置通知
+      afterAA  后置通知
+    B
+      beforeBB 前置通知
+      afterBB  后置通知
+    C
+      beforeCC 前置通知
+      afterCC  后置通知
+    Target
+      target  目标方法

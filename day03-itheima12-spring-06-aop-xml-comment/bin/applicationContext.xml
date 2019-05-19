@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+  	<bean id="salaryManager" class="com.itheima12.aop.xml.aspects.SalaryManagerImpl"></bean>
+  	<bean id="logger" class="com.itheima12.aop.xml.aspects.Logger"></bean>
+  	<bean id="security" class="com.itheima12.aop.xml.aspects.Security"></bean>
+  	<bean id="privilege" class="com.itheima12.aop.xml.aspects.Privilege">
+  	</bean>
+  	
+  	<aop:config proxy-target-class="true">
+  		<aop:pointcut 
+  			expression="execution(* com.itheima12.aop.xml.aspects.SalaryManagerImpl.*(..))" 
+  			id="perform"/>
+  		<aop:aspect ref="logger">
+  			<aop:before method="logging" pointcut-ref="perform"/>
+  		</aop:aspect>
+  		<aop:aspect ref="security">
+  			<aop:before method="security" pointcut-ref="perform"/>
+  		</aop:aspect>
+  		<aop:aspect ref="privilege">
+  			<aop:around method="controlShowSalary" pointcut-ref="perform"/>
+  		</aop:aspect>
+  	</aop:config>
+</beans>
